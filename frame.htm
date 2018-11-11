@@ -13,11 +13,11 @@
     </style>
   </head>
   <body>
-    <img class='VariabelMit' width='640' height='480' alt='loading image...' name='camimage'
+    <img class='VariabelMit' width='640' height='480' alt='loading image...' id='camImage'
          src='http://www.kos.gr/images/webcam/current.jpg'>
 
     <script language="JavaScript">
-          var imageUrl= document.camimage.src;
+          var imageUrl= document.getElementById('camImage').src;
           var random = new Date().getTime();
           var delay = 1;										
           var counter = 0;
