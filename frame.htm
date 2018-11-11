@@ -13,6 +13,34 @@
     </style>
   </head>
   <body>
-    <img class='VariabelMit' src='http://www.kos.gr/images/webcam/current.jpg' width='640' height='480' alt='loading image...' id='camimage'>
+    <img class='VariabelMit' src='http://www.kos.gr/images/webcam/current.jpg' width='640' height='480' alt='loading image...' name='camimage'>
+
+    <script language="JavaScript">
+          var imageUrl= document.camimage.src;
+          var random = new Date().getTime();
+          var delay = 1;										
+          var counter = 0;
+          var buffer = new Image;
+    
+          function DisplayImage() {
+            document.camimage.src = buffer.src;
+            LoadNextImage();
+          }
+    
+          function LoadBuffer () {
+            var trickname = imageUrl;
+            ++counter;
+            trickname += "?counter=" + (random + counter);
+            buffer.src = trickname;
+            buffer.onload = DisplayImage;
+          }
+    
+          function LoadNextImage() {
+            setTimeout("LoadBuffer()", 1000*delay);
+          }
+    
+          LoadNextImage();    
+        </script>
+
   </body>
 </html>
